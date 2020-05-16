@@ -1,0 +1,24 @@
+version: '2.1'
+services:
+
+  #
+  # janus-gateway
+  #
+  janus-gateway:
+    network_mode: host
+    image: 'canyan/janus-gateway:0.9.2'
+    command: ["/usr/local/bin/janus", "-F", "/usr/local/etc/janus"]
+    ports:
+      - "8188:8188"
+      - "8088:8088"
+      - "8089:8089"
+      - "8889:8889"
+      - "8000:8000"
+      - "7088:7088"
+      - "7089:7089"
+      - "20000-40000:20000-40000/udp"
+    volumes:
+      - "./janus_configs/janus.jcfg:/usr/local/etc/janus/janus.jcfg"
+      - "./janus_configs/janus.plugin.videoroom.jcfg:/usr/local/etc/janus/janus.plugin.videoroom.jcfg"
+      - "./janus_recordings:/tmp"
+    restart: always
