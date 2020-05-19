@@ -48,7 +48,6 @@ general: {
 	# By default, integers are used as a unique ID for both rooms and participants.
 	# In case you want to use strings instead (e.g., a UUID), set string_ids to true.
 	#string_ids = true
-  rec_dir = /tmp
 }
 
 room-1234: {
